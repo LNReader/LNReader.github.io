@@ -48,7 +48,7 @@ export default function Banner() {
             mb: 4,
           }}
         >
-          Discover and read light novels, novels and more easier than ever on
+          Discover and read light novels, novels and more easier - than ever on
           your Android device.
         </Typography>
         <Stack
