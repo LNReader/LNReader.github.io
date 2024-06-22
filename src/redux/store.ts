@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import sideBarReducer from "./SideBarSlice";
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    sideBar: sideBarReducer,
+  },
 });
 
 export default store;

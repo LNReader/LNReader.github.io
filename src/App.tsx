@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider } from "@mui/material";
+import { Box, createTheme, ThemeProvider } from "@mui/material";
 import "./App.css";
 import {
   createBrowserRouter,
@@ -9,15 +9,9 @@ import {
 import HomePage from "@routes/home";
 import GettingStarted from "@routes/docs/guides/gettingStarted";
 import AppBar from "@components/AppBar";
+import SideBar from "@components/SideBar";
 
 const theme = createTheme({
-  components: {
-    MuiButtonBase: {
-      defaultProps: {
-        disableRipple: true,
-      },
-    },
-  },
   palette: {
     mode: "dark",
   },
@@ -38,10 +32,15 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  const isHomePage = window.location.pathname === "/";
+
   return (
     <ThemeProvider theme={theme}>
       <AppBar />
-      <RouterProvider router={router} />
+      <Box component="nav">
+        {isHomePage ? null : <SideBar />}
+        <RouterProvider router={router} />
+      </Box>
     </ThemeProvider>
   );
 }
