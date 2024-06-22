@@ -55,12 +55,7 @@ export default function SideBar(props: Props) {
     window !== undefined ? () => window().document.body : undefined;
   return (
     <div>
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
-      >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+      <Box sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>
         <Drawer
           container={container}
           variant="temporary"

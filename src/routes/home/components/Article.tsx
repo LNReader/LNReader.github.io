@@ -1,4 +1,6 @@
-import { Box, Card, Typography, useTheme } from "@mui/material";
+import { useTheme } from "@hooks/useTheme";
+import { Box, Card, Typography } from "@mui/material";
+import Color from "color";
 import { ReactNode } from "react";
 
 export interface ArticleProps {
@@ -22,7 +24,7 @@ export default function Article({ title, content, icon }: ArticleProps) {
         sx={{
           display: "flex",
           p: 1,
-          bgcolor: theme.palette.grey[800],
+          bgcolor: Color(theme.primary).alpha(0.1).toString(),
           width: "max-content",
           mb: 2,
           borderRadius: 1,
@@ -41,7 +43,8 @@ export default function Article({ title, content, icon }: ArticleProps) {
       </Typography>
       <Typography
         sx={{
-          color: theme.palette.text.secondary,
+          color: theme.onSurfaceVariant,
+          fontSize: 14,
         }}
       >
         {content}

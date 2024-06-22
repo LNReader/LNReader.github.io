@@ -25,6 +25,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@routes/*": ["./src/routes/*"],
       "@assets/*": ["./src/assets/*"],
+      "@themes/*": ["./src/themes/*"],
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
   },
   "include": ["src"],

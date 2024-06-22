@@ -1,11 +1,5 @@
-import {
-  Box,
-  Button,
-  Stack,
-  SxProps,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { useTheme } from "@hooks/useTheme";
+import { Box, Button, Stack, SxProps, Typography } from "@mui/material";
 
 const bannerTextStyle: SxProps = {
   fontSize: { xs: 24, sm: 46 },
@@ -25,14 +19,13 @@ export default function Banner() {
         sx={{
           flex: 1,
           textAlign: { sm: "center", md: "left" },
-          mt: { xs: 12, sm: 14 },
           mb: 8,
         }}
       >
         <Typography
           sx={{
             ...bannerTextStyle,
-            color: theme.palette.primary.dark,
+            color: theme.primary,
             lineHeight: "46px",
           }}
         >
@@ -44,11 +37,11 @@ export default function Banner() {
         <Typography
           sx={{
             fontSize: { xs: 20, sm: 24 },
-            color: theme.palette.text.secondary,
+            color: theme.secondary,
             mb: 4,
           }}
         >
-          Discover and read light novels, novels and more easier - than ever on
+          Discover and read light novels, novels and more - easier than ever on
           your Android device.
         </Typography>
         <Stack

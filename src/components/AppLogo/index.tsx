@@ -1,6 +1,8 @@
+import { useTheme } from "@hooks/useTheme";
 import { Box, ButtonBase, Typography } from "@mui/material";
 
 export default function AppLogo() {
+  const theme = useTheme();
   return (
     <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
       <ButtonBase href="/" disableRipple={true}>
@@ -16,7 +18,7 @@ export default function AppLogo() {
           display: { xs: "none", sm: "flex" },
           fontFamily: "monospace",
           fontWeight: 700,
-          color: "inherit",
+          color: theme.onSurface,
           textDecoration: "none",
         }}
       >

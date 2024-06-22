@@ -5,7 +5,7 @@ export default function Footer() {
     <Box sx={{ p: { xs: 2, sm: 4 } }}>
       <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
         <Typography sx={{ fontSize: { xs: 12, sm: 16 } }}>
-          Open-source Apache Licenced
+          Open-source MIT Licenced
         </Typography>
         <Typography sx={{ fontSize: { xs: 12, sm: 16 } }}>
           Privacy policy
