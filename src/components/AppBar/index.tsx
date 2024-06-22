@@ -14,6 +14,7 @@ import useSideBar from "@hooks/useSideBar";
 import AppLogo from "@components/AppLogo";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { useState } from "react";
+import { isHomePage } from "../../utils/pathUtils";
 
 export default function AppBar() {
   const { openSideBar } = useSideBar();
@@ -101,15 +102,17 @@ export default function AppBar() {
   return (
     <MUIAppBar sx={{ px: 2 }}>
       <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={openSideBar}
-          sx={{ mr: 2, display: { sm: "none" } }}
-        >
-          <MenuIcon />
-        </IconButton>
+        {isHomePage() ? null : (
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={openSideBar}
+            sx={{ mr: 2, display: { sm: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+        )}
         <AppLogo />
         <Box sx={{ flexGrow: 1 }} />
         {renderMenu}

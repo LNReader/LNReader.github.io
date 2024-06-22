@@ -10,6 +10,7 @@ import HomePage from "@routes/home";
 import GettingStarted from "@routes/docs/guides/gettingStarted";
 import AppBar from "@components/AppBar";
 import SideBar from "@components/SideBar";
+import { isHomePage } from "./utils/pathUtils";
 
 const theme = createTheme({
   palette: {
@@ -32,13 +33,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  const isHomePage = window.location.pathname === "/";
-
   return (
     <ThemeProvider theme={theme}>
       <AppBar />
       <Box component="nav">
-        {isHomePage ? null : <SideBar />}
+        {isHomePage() ? null : <SideBar />}
         <RouterProvider router={router} />
       </Box>
     </ThemeProvider>
