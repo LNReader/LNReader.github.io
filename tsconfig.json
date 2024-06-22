@@ -26,6 +26,7 @@
       "@routes/*": ["./src/routes/*"],
       "@assets/*": ["./src/assets/*"],
       "@themes/*": ["./src/themes/*"],
+      "@utils/*": ["./src/utils/*"],
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
   },
   "include": ["src"],

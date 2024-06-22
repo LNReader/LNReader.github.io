@@ -13,16 +13,17 @@ import useSideBar from "@hooks/useSideBar";
 import AppLogo from "@components/AppLogo";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { useState } from "react";
-import { isHomePage } from "../../utils/pathUtils";
 import { useTheme } from "@hooks/useTheme";
 import DiscordIcon from "@components/Icons/DiscordIcon";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useDispatch } from "react-redux";
 import { switchTheme } from "@redux/SettingsSlice";
+import { Link, useLocation } from "react-router-dom";
 
 export default function AppBar() {
   const theme = useTheme();
+  const location = useLocation();
   const { openSideBar } = useSideBar();
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     useState<null | HTMLElement>(null);
@@ -55,17 +56,17 @@ export default function AppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem sx={{ justifyContent: "center" }}>
-        <Typography
-          component="a"
-          href="/guides/getting-started"
-          sx={{
-            color: theme.onSurface,
-            fontFamily: "monospace",
-            fontWeight: 600,
-          }}
-        >
-          Guides
-        </Typography>
+        <Link to="/guides/getting-started">
+          <Typography
+            sx={{
+              color: theme.onSurface,
+              fontFamily: "monospace",
+              fontWeight: 600,
+            }}
+          >
+            Guides
+          </Typography>
+        </Link>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -98,18 +99,18 @@ export default function AppBar() {
 
   const renderMenu = (
     <Box sx={{ display: { xs: "none", md: "flex", alignItems: "center" } }}>
-      <Typography
-        component="a"
-        href="/guides/getting-started"
-        sx={{
-          color: theme.onSurface,
-          fontFamily: "monospace",
-          fontWeight: 600,
-          mx: 2,
-        }}
-      >
-        Guides
-      </Typography>
+      <Link to="/guides/getting-started">
+        <Typography
+          sx={{
+            color: theme.onSurface,
+            fontFamily: "monospace",
+            fontWeight: 600,
+            mx: 2,
+          }}
+        >
+          Guides
+        </Typography>
+      </Link>
       <IconButton
         sx={{ mx: 2 }}
         onClick={() => {
@@ -131,7 +132,7 @@ export default function AppBar() {
   return (
     <MUIAppBar sx={{ px: { sm: 2 } }}>
       <Toolbar>
-        {isHomePage() ? null : (
+        {location.pathname === "/" ? null : (
           <IconButton
             color="inherit"
             aria-label="open drawer"

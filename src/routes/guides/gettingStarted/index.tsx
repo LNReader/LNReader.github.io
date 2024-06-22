@@ -1,9 +1,10 @@
-import { Container, Typography } from "@mui/material";
+import Layout from "@components/Layout";
+import { Typography } from "@mui/material";
 
 export default function GettingStarted() {
   return (
-    <Container>
+    <Layout>
       <Typography>Getting started</Typography>
-    </Container>
+    </Layout>
   );
 }

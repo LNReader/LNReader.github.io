@@ -1,5 +1,6 @@
 import { useTheme } from "@hooks/useTheme";
 import { Box, SxProps, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function NavLink({
   title,
@@ -13,17 +14,19 @@ export default function NavLink({
   const active = location.pathname === link;
   const theme = useTheme();
   return (
-    <Box sx={{ ...sx, my: 1 }} component="a" href={link}>
-      <Typography
-        sx={{
-          color: active ? theme.primary : theme.onSurfaceVariant,
-          ":hover": {
-            color: theme.primary,
-          },
-        }}
-      >
-        {title}
-      </Typography>
-    </Box>
+    <Link to={link} style={{ display: "flex", flex: 1 }}>
+      <Box sx={{ ...sx, my: 1 }}>
+        <Typography
+          sx={{
+            color: active ? theme.primary : theme.onSurfaceVariant,
+            ":hover": {
+              color: theme.primary,
+            },
+          }}
+        >
+          {title}
+        </Typography>
+      </Box>
+    </Link>
   );
 }

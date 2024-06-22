@@ -5,6 +5,7 @@ import ExtensionIcon from "@mui/icons-material/Extension";
 import TuneIcon from "@mui/icons-material/Tune";
 import SyncIcon from "@mui/icons-material/Sync";
 import Banner from "./components/Banner";
+import Layout from "@components/Layout";
 
 const articles: ArticleProps[] = [
   {
@@ -35,7 +36,7 @@ const articles: ArticleProps[] = [
 
 export default function HomePage() {
   return (
-    <Box>
+    <Layout>
       <Box sx={{ pb: 16, px: { xs: 2, md: 4, lg: 16 } }}>
         <Banner />
         <Stack direction={{ sx: "column", sm: "row" }} sx={{ gap: 2 }}>
@@ -46,6 +47,6 @@ export default function HomePage() {
       </Box>
       <Divider />
       <Footer />
-    </Box>
+    </Layout>
   );
 }

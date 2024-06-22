@@ -1,9 +1,10 @@
-import { Container, Typography } from "@mui/material";
+import Layout from "@components/Layout";
+import { Typography } from "@mui/material";
 
 export default function ReaderSettings() {
   return (
-    <Container>
+    <Layout>
       <Typography>Reader Settings</Typography>
-    </Container>
+    </Layout>
   );
 }

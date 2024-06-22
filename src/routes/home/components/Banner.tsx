@@ -1,5 +1,6 @@
 import { useTheme } from "@hooks/useTheme";
 import { Box, Button, Stack, SxProps, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const bannerTextStyle: SxProps = {
   fontSize: { xs: 24, sm: 46 },
@@ -48,30 +49,32 @@ export default function Banner() {
           direction="row"
           sx={{ flex: 1, gap: 2, justifyContent: { xs: "center", md: "left" } }}
         >
-          <Button
-            variant="contained"
-            sx={{
-              borderRadius: 8,
-              textTransform: "unset",
-              fontSize: 16,
-              fontWeight: 600,
-            }}
-            href="/guides/getting-started"
-          >
-            Get started
-          </Button>
-          <Button
-            variant="outlined"
-            sx={{
-              borderRadius: 8,
-              textTransform: "unset",
-              fontSize: 16,
-              fontWeight: 600,
-            }}
-            href="/download"
-          >
-            Download
-          </Button>
+          <Link to="/guides/getting-started">
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: 8,
+                textTransform: "unset",
+                fontSize: 16,
+                fontWeight: 600,
+              }}
+            >
+              Get started
+            </Button>
+          </Link>
+          <Link to="/download">
+            <Button
+              variant="outlined"
+              sx={{
+                borderRadius: 8,
+                textTransform: "unset",
+                fontSize: 16,
+                fontWeight: 600,
+              }}
+            >
+              Download
+            </Button>
+          </Link>
         </Stack>
       </Box>
       <Box sx={{ flex: 1 }}></Box>

@@ -1,9 +1,10 @@
-import { Container, Typography } from "@mui/material";
+import Layout from "@components/Layout";
+import { Typography } from "@mui/material";
 
 export default function Changelogs() {
   return (
-    <Container>
+    <Layout>
       <Typography>Changelogs</Typography>
-    </Container>
+    </Layout>
   );
 }

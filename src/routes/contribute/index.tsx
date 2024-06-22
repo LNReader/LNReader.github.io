@@ -1,9 +1,10 @@
-import { Container, Typography } from "@mui/material";
+import Layout from "@components/Layout";
+import { Typography } from "@mui/material";
 
 export default function Contribute() {
   return (
-    <Container>
+    <Layout>
       <Typography>Contribute</Typography>
-    </Container>
+    </Layout>
   );
 }
