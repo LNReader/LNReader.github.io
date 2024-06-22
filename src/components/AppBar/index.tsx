@@ -100,7 +100,7 @@ export default function AppBar() {
   );
 
   return (
-    <MUIAppBar sx={{ px: 2 }}>
+    <MUIAppBar sx={{ px: { sm: 2 } }}>
       <Toolbar>
         {isHomePage() ? null : (
           <IconButton

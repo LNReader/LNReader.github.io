@@ -11,6 +11,7 @@ import GettingStarted from "@routes/docs/guides/gettingStarted";
 import AppBar from "@components/AppBar";
 import SideBar from "@components/SideBar";
 import { isHomePage } from "./utils/pathUtils";
+import Download from "@routes/download";
 
 const theme = createTheme({
   palette: {
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
           <Route path="getting-started" element={<GettingStarted />} />
         </Route>
       </Route>
+      <Route path="/download" element={<Download />} />
     </Route>
   )
 );
