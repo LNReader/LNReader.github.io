@@ -15,18 +15,21 @@ const articles: ArticleProps[] = [
         sx={{ stroke: "orange", fill: "transparent", strokeWidth: 2 }}
       />
     ),
+    link: "/plugins",
   },
   {
     title: "Customization",
     content:
       "Make it yours with multiple reading modes, custom color filters, and many other settings.",
     icon: <TuneIcon sx={{ stroke: "dodgerblue", fill: "transparent" }} />,
+    link: "/guides/reader-settings",
   },
   {
-    title: "Tracking",
+    title: "Backup",
     content:
-      "Automatically keep track of your series with MyAnimeList, AniList, Kitsu, and more.",
+      "Backup and restore your novels, progesses,... in just one click with Google Drive",
     icon: <SyncIcon sx={{ fill: "limegreen", stroke: "transparent" }} />,
+    link: "/guides/backups",
   },
 ];
 

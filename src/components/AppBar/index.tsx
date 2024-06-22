@@ -54,12 +54,11 @@ export default function AppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem sx={{ justifyContent: "center" }}>
         <Typography
           component="a"
           href="/guides/getting-started"
           sx={{
-            mx: 2,
             color: theme.onSurface,
             fontFamily: "monospace",
             fontWeight: 600,
@@ -68,19 +67,22 @@ export default function AppBar() {
           Guides
         </Typography>
       </MenuItem>
-      <IconButton
-        sx={{ ml: 1 }}
-        onClick={() => {
-          dispatch(switchTheme());
-        }}
-        color="inherit"
-      >
-        {theme.isDark ? <Brightness7Icon /> : <Brightness4Icon />}
-      </IconButton>
+      <MenuItem>
+        <IconButton
+          onClick={() => {
+            dispatch(switchTheme());
+          }}
+          color="inherit"
+        >
+          {theme.isDark ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+        <Typography>{theme.isDark ? "Dark" : "Light"}</Typography>
+      </MenuItem>
       <MenuItem>
         <IconButton href="https://github.com/LNReader/lnreader" target="_blank">
           <GitHubIcon />
         </IconButton>
+        <Typography>Github</Typography>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -89,6 +91,7 @@ export default function AppBar() {
         >
           <DiscordIcon />
         </IconButton>
+        <Typography>Discord</Typography>
       </MenuItem>
     </Menu>
   );

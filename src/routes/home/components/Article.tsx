@@ -7,17 +7,27 @@ export interface ArticleProps {
   title: string;
   content: string;
   icon: ReactNode;
+  link: string;
 }
 
-export default function Article({ title, content, icon }: ArticleProps) {
+export default function Article({ title, content, icon, link }: ArticleProps) {
   const theme = useTheme();
   return (
     <Card
+      component="a"
+      href={link}
       sx={{
         p: 4,
-        flex: 1,
         borderRadius: 4,
         textAlign: "left",
+        ":hover": {
+          borderColor: theme.primary,
+        },
+        borderColor: "transparent",
+        borderStyle: "solid",
+        borderWidth: 2,
+        flex: 1,
+        cursor: "pointer",
       }}
     >
       <Box
