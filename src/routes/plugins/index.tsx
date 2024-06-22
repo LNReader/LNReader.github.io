@@ -1,9 +1,9 @@
 import { Container, Typography } from "@mui/material";
 
-export default function Download() {
+export default function Plugins() {
   return (
     <Container>
-      <Typography>Download</Typography>
+      <Typography>Plugins</Typography>
     </Container>
   );
 }

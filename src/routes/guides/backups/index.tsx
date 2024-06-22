@@ -1,9 +1,9 @@
 import { Container, Typography } from "@mui/material";
 
-export default function Download() {
+export default function Backups() {
   return (
     <Container>
-      <Typography>Download</Typography>
+      <Typography>Backups</Typography>
     </Container>
   );
 }

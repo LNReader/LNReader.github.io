@@ -6,25 +6,32 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import HomePage from "@routes/home";
-import GettingStarted from "@routes/docs/guides/gettingStarted";
+import GettingStarted from "@routes/guides/gettingStarted";
 import AppBar from "@components/AppBar";
 import SideBar from "@components/SideBar";
 import { isHomePage } from "./utils/pathUtils";
 import Download from "@routes/download";
 import { useTheme } from "@hooks/useTheme";
 import Color from "color";
+import Backups from "@routes/guides/backups";
+import ReaderSettings from "@routes/guides/readerSettings";
+import Changelogs from "@routes/changelogs";
+import Contribute from "@routes/contribute";
+import Plugins from "@routes/plugins";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route index element={<HomePage />} />
-      <Route path="docs">
-        <Route path="guides">
-          <Route index element={<GettingStarted />} />
-          <Route path="getting-started" element={<GettingStarted />} />
-        </Route>
-      </Route>
       <Route path="/download" element={<Download />} />
+      <Route path="/changelogs" element={<Changelogs />} />
+      <Route path="/contribute" element={<Contribute />} />
+      <Route path="/plugins" element={<Plugins />} />
+      <Route path="guides">
+        <Route path="getting-started" element={<GettingStarted />} />
+        <Route path="backups" element={<Backups />} />
+        <Route path="reader-settings" element={<ReaderSettings />} />
+      </Route>
     </Route>
   )
 );

@@ -4,14 +4,14 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemButton,
-  ListItemText,
   Toolbar,
+  Typography,
 } from "@mui/material";
 import useSideBar from "@hooks/useSideBar";
 import AppLogo from "@components/AppLogo";
+import NavLink from "./components/NavLink";
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 interface Props {
   /**
    * Injected by the documentation to work in an iframe.
@@ -20,35 +20,47 @@ interface Props {
   window?: () => Window;
 }
 
+const generalNavs = [
+  { title: "Download", link: "/download" },
+  { title: "Changelogs", link: "/changelogs" },
+  { title: "Contribute", link: "/contribute" },
+  { title: "Plugins", link: "/plugins" },
+];
+
+const guideNavs = [
+  { title: "Getting started", link: "/guides/getting-started" },
+  { title: "Backups", link: "/guides/backups" },
+  { title: "Reader settings", link: "/guides/reader-settings" },
+];
+
 export default function SideBar(props: Props) {
   const { window } = props;
   const { mobileOpen, closeSideBar } = useSideBar();
   const drawer = (
-    <div>
-      <Toolbar sx={{ px: 16, display: { xs: "none", sm: "flex" } }}>
+    <Box sx={{ pl: { xs: 2, sm: 4 }, pr: 2, pt: { xs: 2, sm: 0 } }}>
+      <Toolbar sx={{ display: { xs: "none", sm: "flex" }, pl: { xs: 0 } }}>
         <AppLogo />
       </Toolbar>
-      <Divider />
+      <Divider sx={{ display: { xs: "none", sm: "block" } }} />
       <List>
-        {["Doc 1", "Doc 2", "Doc 3", "Doc 4"].map((text) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text} />
-            </ListItemButton>
+        {generalNavs.map((item) => (
+          <ListItem key={item.link} disablePadding>
+            <NavLink title={item.title} link={item.link} />
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
-        {["Doc 5", "Doc 6", "Doc 7"].map((text) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text} />
-            </ListItemButton>
+        <Typography variant="h6" sx={{ textAlign: "left" }}>
+          Guides
+        </Typography>
+        {guideNavs.map((item) => (
+          <ListItem key={item.link} disablePadding>
+            <NavLink title={item.title} link={item.link} />
           </ListItem>
         ))}
       </List>
-    </div>
+    </Box>
   );
 
   const container =

@@ -57,7 +57,7 @@ export default function AppBar() {
       <MenuItem>
         <Typography
           component="a"
-          href="/docs/guides"
+          href="/guides/getting-started"
           sx={{
             mx: 2,
             color: theme.onSurface,
@@ -65,7 +65,7 @@ export default function AppBar() {
             fontWeight: 600,
           }}
         >
-          Docs
+          Guides
         </Typography>
       </MenuItem>
       <IconButton
@@ -97,7 +97,7 @@ export default function AppBar() {
     <Box sx={{ display: { xs: "none", md: "flex", alignItems: "center" } }}>
       <Typography
         component="a"
-        href="/docs/guides"
+        href="/guides/getting-started"
         sx={{
           color: theme.onSurface,
           fontFamily: "monospace",
@@ -105,7 +105,7 @@ export default function AppBar() {
           mx: 2,
         }}
       >
-        Docs
+        Guides
       </Typography>
       <IconButton
         sx={{ mx: 2 }}
@@ -134,7 +134,7 @@ export default function AppBar() {
             aria-label="open drawer"
             edge="start"
             onClick={openSideBar}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>

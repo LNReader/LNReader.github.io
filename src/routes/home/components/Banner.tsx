@@ -56,7 +56,7 @@ export default function Banner() {
               fontSize: 16,
               fontWeight: 600,
             }}
-            href="/docs/guides"
+            href="/guides/getting-started"
           >
             Get started
           </Button>

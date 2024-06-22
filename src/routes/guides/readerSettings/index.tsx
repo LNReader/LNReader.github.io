@@ -1,9 +1,9 @@
 import { Container, Typography } from "@mui/material";
 
-export default function Download() {
+export default function ReaderSettings() {
   return (
     <Container>
-      <Typography>Download</Typography>
+      <Typography>Reader Settings</Typography>
     </Container>
   );
 }
