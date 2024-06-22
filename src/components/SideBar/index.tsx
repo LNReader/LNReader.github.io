@@ -5,19 +5,13 @@ import {
   List,
   ListItem,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
   Toolbar,
 } from "@mui/material";
-import { useState } from "react";
-
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import useSideBar from "@hooks/useSideBar";
 import AppLogo from "@components/AppLogo";
 
 const drawerWidth = 240;
-
 interface Props {
   /**
    * Injected by the documentation to work in an iframe.
@@ -46,7 +40,7 @@ export default function SideBar(props: Props) {
       </List>
       <Divider />
       <List>
-        {["Doc 5", "Doc 6", "Doc 7"].map((text, index) => (
+        {["Doc 5", "Doc 6", "Doc 7"].map((text) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemText primary={text} />
