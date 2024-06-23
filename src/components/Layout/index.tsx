@@ -1,12 +1,18 @@
 import AppBar from "@components/AppBar";
 import SideBar from "@components/SideBar";
 import { useTheme } from "@hooks/useTheme";
-import { Box } from "@mui/material";
+import { Box, SxProps } from "@mui/material";
 import { ReactNode, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import routes from "../../../routes.json";
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({
+  children,
+  sx,
+}: {
+  sx?: SxProps;
+  children: ReactNode;
+}) {
   const location = useLocation();
   const theme = useTheme();
   useEffect(() => {
@@ -28,6 +34,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           width: "100%",
           pt: { xs: 12, sm: 14 },
           display: "flex",
+          ...sx,
         }}
       >
         {location.pathname === "/" ? null : <SideBar />}
