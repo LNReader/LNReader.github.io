@@ -68,37 +68,34 @@ export default function AppBar() {
           </Typography>
         </Link>
       </MenuItem>
-      <MenuItem>
-        <IconButton
-          sx={{ gap: 1 }}
-          onClick={() => {
-            dispatch(switchTheme());
-          }}
-          color="inherit"
-        >
-          {theme.isDark ? <Brightness7Icon /> : <Brightness4Icon />}
-          <Typography>{theme.isDark ? "Dark" : "Light"}</Typography>
-        </IconButton>
+      <MenuItem
+        onClick={() => {
+          dispatch(switchTheme());
+        }}
+        sx={{ gap: 0.5 }}
+      >
+        {theme.isDark ? <Brightness7Icon /> : <Brightness4Icon />}
+        <Typography>{theme.isDark ? "Dark" : "Light"}</Typography>
       </MenuItem>
       <MenuItem>
-        <IconButton
-          sx={{ gap: 1 }}
-          href="https://github.com/LNReader/lnreader"
+        <Link
+          to="https://github.com/LNReader/lnreader"
           target="_blank"
+          style={{ gap: 4, display: "flex" }}
         >
           <GitHubIcon />
           <Typography>Github</Typography>
-        </IconButton>
+        </Link>
       </MenuItem>
       <MenuItem>
-        <IconButton
-          sx={{ gap: 1 }}
-          href="https://discord.com/invite/QdcWN4MD63"
+        <Link
+          to="https://discord.com/invite/QdcWN4MD63"
           target="_blank"
+          style={{ gap: 4, display: "flex" }}
         >
           <DiscordIcon />
           <Typography>Discord</Typography>
-        </IconButton>
+        </Link>
       </MenuItem>
     </Menu>
   );
