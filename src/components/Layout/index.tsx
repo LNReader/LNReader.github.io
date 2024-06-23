@@ -25,6 +25,9 @@ export default function Layout({
       document.title = "LNReader";
     }
   }, [location.pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Box>
       <AppBar />
