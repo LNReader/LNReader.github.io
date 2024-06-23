@@ -3,6 +3,8 @@ import path from "path";
 import fs from "fs";
 
 const indexPage = fs.readFileSync("./dist/index.html", "utf-8");
+const BASE_URL = "https://lnreader.github.io/";
+let siteMapContent = "";
 for (const route of routes) {
   const routePage = indexPage
     .replace(/<title>.+<\/title>/, `<title>${route.title}</title>`)
@@ -16,4 +18,6 @@ for (const route of routes) {
     fs.mkdirSync(dir, { recursive: true });
   }
   fs.writeFileSync(filePath, routePage, "utf-8");
+  siteMapContent += `${BASE_URL}${route.path}\n`;
 }
+fs.writeFileSync("./dist/sitemap.txt", siteMapContent, "utf-8");
