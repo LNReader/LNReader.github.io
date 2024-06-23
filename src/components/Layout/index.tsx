@@ -22,7 +22,7 @@ export default function Layout({
     if (route) {
       document.title = route.title;
     } else {
-      document.title = "Home | LNReader";
+      document.title = "LNReader";
     }
   }, [location.pathname]);
   return (
