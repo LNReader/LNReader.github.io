@@ -7,7 +7,7 @@ export default function AppLogo() {
   return (
     <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
       <Link to="/" style={{ display: "flex", alignItems: "center" }}>
-        <img src="/ico.png" height={45} width={45} />
+        <img src="/icon.png" height={45} width={45} />
         <Typography
           variant="h6"
           noWrap
