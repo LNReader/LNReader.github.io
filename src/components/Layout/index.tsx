@@ -31,11 +31,10 @@ export default function Layout({
     window.scrollTo(0, 0);
   }, []);
   return (
-    <Box>
+    <Box sx={{ bgcolor: theme.background }}>
       <AppBar />
       <Box
         sx={{
-          bgcolor: theme.background,
           width: "100%",
           display: "flex",
           ...sx,
