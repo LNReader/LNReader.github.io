@@ -36,7 +36,7 @@ const articles: ArticleProps[] = [
 
 export default function HomePage() {
   return (
-    <Layout>
+    <Layout showSideBar={false}>
       <Box sx={{ pb: 16, px: { xs: 2, md: 4, lg: 16 } }}>
         <Banner />
         <Stack direction={{ sx: "column", sm: "row" }} sx={{ gap: 2 }}>

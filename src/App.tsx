@@ -10,6 +10,7 @@ import ReaderSettings from "@routes/guides/readerSettings";
 import Changelogs from "@routes/changelogs";
 import Contribute from "@routes/contribute";
 import Plugins from "@routes/plugins";
+import NotFound from "./404";
 
 function App() {
   const theme = useTheme();
@@ -85,6 +86,7 @@ function App() {
               <Route path="reader-settings" element={<ReaderSettings />} />
             </Route>
           </Route>
+          <Route path="*" Component={NotFound} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

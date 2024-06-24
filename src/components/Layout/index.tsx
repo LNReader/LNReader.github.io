@@ -9,7 +9,9 @@ import routes from "../../../routes.json";
 export default function Layout({
   children,
   sx,
+  showSideBar = true,
 }: {
+  showSideBar?: boolean;
   sx?: SxProps;
   children: ReactNode;
 }) {
@@ -40,7 +42,7 @@ export default function Layout({
           ...sx,
         }}
       >
-        {location.pathname === "/" ? null : <SideBar />}
+        {showSideBar ? <SideBar /> : null}
         <Box sx={{ flex: 1 }}>{children}</Box>
       </Box>
     </Box>

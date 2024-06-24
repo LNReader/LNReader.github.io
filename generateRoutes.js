@@ -20,4 +20,9 @@ for (const route of routes) {
   fs.writeFileSync(filePath, routePage, "utf-8");
   siteMapContent += `${BASE_URL}${route.path}\n`;
 }
+fs.writeFileSync(
+  "./dist/404.html",
+  indexPage.replace(/<title>.+<\/title>/, `<title>404 | LNReader</title>`),
+  "utf-8"
+);
 fs.writeFileSync("./dist/sitemap.txt", siteMapContent, "utf-8");
