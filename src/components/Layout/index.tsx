@@ -37,7 +37,6 @@ export default function Layout({
         sx={{
           bgcolor: theme.background,
           width: "100%",
-          pt: { xs: 12, sm: 14 },
           display: "flex",
           ...sx,
         }}

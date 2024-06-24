@@ -133,7 +133,7 @@ export default function AppBar() {
   );
 
   return (
-    <MUIAppBar sx={{ px: { sm: 2 } }}>
+    <MUIAppBar sx={{ px: { sm: 2 } }} position="sticky">
       <Toolbar>
         {location.pathname === "/" ? null : (
           <IconButton
