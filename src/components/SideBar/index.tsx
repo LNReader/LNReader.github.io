@@ -31,6 +31,7 @@ const guideNavs = [
   { title: "Getting started", link: "/guides/getting-started" },
   { title: "Backups", link: "/guides/backups" },
   { title: "Reader settings", link: "/guides/reader-settings" },
+  { title: "Upgrade", link: "/guides/upgrade" },
 ];
 
 export default function SideBar(props: Props) {

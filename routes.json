@@ -33,5 +33,10 @@
         "path": "guides/reader-settings",
         "title": "Reader settings | LNReader",
         "description": "This section relates to the reading experience in the app and navigating the reader."
+    },
+    {
+        "path": "guides/upgrade",
+        "title": "Upgrade helper | LNReader",
+        "description": "Instructions to migrate app from old version to the latest."
     }
 ]

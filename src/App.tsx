@@ -11,6 +11,7 @@ import Changelogs from "@routes/changelogs";
 import Contribute from "@routes/contribute";
 import Plugins from "@routes/plugins";
 import NotFound from "./404";
+import Upgrade from "@routes/guides/upgrade";
 
 function App() {
   const theme = useTheme();
@@ -84,6 +85,7 @@ function App() {
               <Route path="getting-started" element={<GettingStarted />} />
               <Route path="backups" element={<Backups />} />
               <Route path="reader-settings" element={<ReaderSettings />} />
+              <Route path="upgrade" element={<Upgrade />} />
             </Route>
           </Route>
           <Route path="*" Component={NotFound} />
