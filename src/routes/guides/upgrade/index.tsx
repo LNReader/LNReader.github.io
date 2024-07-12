@@ -43,6 +43,9 @@ const VisuallyHiddenInput = styled("input")({
   width: 1,
 });
 
+const updateDomain = (url: string) =>
+  url.replace("https://www.wuxiap.com/", "https://www.wuxiabox.com/");
+
 const isUrlAbsolute = (url: string) => {
   if (url) {
     if (url.indexOf("//") === 0) {
@@ -88,11 +91,7 @@ export default function Upgrade() {
   const findSuitedPlugin = (novel: OldNovelInfo) => {
     let novelSiteUrl;
     try {
-      const url = novel.sourceUrl.replace(
-        "https://www.wuxiap.com/",
-        "https://www.wuxiabox.com/"
-      );
-      novelSiteUrl = new URL(url);
+      novelSiteUrl = new URL(novel.sourceUrl);
     } catch {
       return undefined;
     }
@@ -111,7 +110,13 @@ export default function Upgrade() {
   const migrateNovels = (oldNovels: OldNovelInfo[]) => {
     const migratedNovels: NovelInfo[] = [];
     const requiredPlugins = new Set<PluginItem>();
-    for (const oldNovel of oldNovels) {
+    const cleanedOldNovels = oldNovels.map((novel) => ({
+      ...novel,
+      sourceUrl: updateDomain(novel.sourceUrl),
+      novelUrl: updateDomain(novel.novelUrl),
+      novelCover: updateDomain(novel.novelCover || ""),
+    }));
+    for (const oldNovel of cleanedOldNovels) {
       const plugin = findSuitedPlugin(oldNovel);
       let novelUrl = oldNovel.novelUrl;
       if (plugin) {
@@ -123,7 +128,7 @@ export default function Upgrade() {
         }
         migratedNovels.push({
           id: oldNovel.novelId,
-          path: novelUrl,
+          path: novelUrl.replace("//", "/"),
           pluginId: plugin.id,
           name: oldNovel.novelName,
           cover: oldNovel.novelCover,
@@ -138,7 +143,6 @@ export default function Upgrade() {
         requiredPlugins.add(plugin);
       }
     }
-
     setMigratedNovel(migratedNovels);
     setRequiredPlugins(Array.from(requiredPlugins));
   };
