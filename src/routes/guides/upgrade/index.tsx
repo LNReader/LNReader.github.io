@@ -88,7 +88,11 @@ export default function Upgrade() {
   const findSuitedPlugin = (novel: OldNovelInfo) => {
     let novelSiteUrl;
     try {
-      novelSiteUrl = new URL(novel.sourceUrl);
+      const url = novel.sourceUrl.replace(
+        "https://www.wuxiap.com/",
+        "https://www.wuxiabox.com/"
+      );
+      novelSiteUrl = new URL(url);
     } catch {
       return undefined;
     }
