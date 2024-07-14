@@ -1,48 +1,8 @@
-import React, { useState } from 'react';
 import Layout from "@components/Layout";
 import Page from "@components/Page";
 import { useTheme } from "@hooks/useTheme";
-import { Typography, Box, Button, Card, Divider, List, ListItem, ListItemIcon, ListItemText, IconButton, Tooltip } from "@mui/material";
-import { Code as CodeIcon, Android as AndroidIcon, Brush as BrushIcon, ContentCopy as ContentCopyIcon, Check as CheckIcon } from '@mui/icons-material';
-
-const CodeBlock = ({ children }: { children: React.ReactNode }) => {
-  const theme = useTheme();
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(children as string);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  return (
-    <Card sx={{ 
-      p: 2, 
-      my: 2, 
-      bgcolor: theme.surfaceVariant,
-      overflowX: 'auto',
-      borderRadius: 2,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between'
-    }}>
-      <Typography component="code" sx={{ 
-        fontFamily: 'monospace', 
-        fontSize: '0.875rem', 
-        whiteSpace: 'pre-wrap',
-        color: theme.onSurfaceVariant,
-        flexGrow: 1
-      }}>
-        {children}
-      </Typography>
-      <Tooltip title={copied ? "Copied!" : "Copy to clipboard"}>
-        <IconButton onClick={handleCopy} size="small" sx={{ ml: 1 }}>
-          {copied ? <CheckIcon fontSize="small" /> : <ContentCopyIcon fontSize="small" />}
-        </IconButton>
-      </Tooltip>
-    </Card>
-  );
-};
+import { Typography, Box, Button, Divider, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import { Code as CodeIcon, Android as AndroidIcon, Brush as BrushIcon } from '@mui/icons-material';
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <Box sx={{ mb: 4 }}>
@@ -53,12 +13,25 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
   </Box>
 );
 
-const StepItem = ({ command, description }: { command: string; description: string }) => (
-  <ListItem alignItems="flex-start" sx={{ flexDirection: 'column', alignItems: 'flex-start' }}>
-    <Typography sx={{ mb: 1 }}>{description}</Typography>
-    <CodeBlock>{command}</CodeBlock>
-  </ListItem>
-);
+const CodeBlock = ({ children }: { children: React.ReactNode }) => {
+  const theme = useTheme();
+  return (
+    <Box
+      sx={{
+        bgcolor: theme.surfaceVariant,
+        color: theme.onSurfaceVariant,
+        p: 2,
+        borderRadius: 1,
+        fontFamily: 'monospace',
+        fontSize: '0.875rem',
+        overflowX: 'auto',
+        mb: 2,
+      }}
+    >
+      {children}
+    </Box>
+  );
+};
 
 export default function Contribute() {
   const theme = useTheme();
@@ -73,8 +46,6 @@ export default function Contribute() {
         <Typography sx={{ mb: 2 }}>
           After forking to your own GitHub org or account, follow these steps to get started:
         </Typography>
-
-        <Typography sx={{ fontWeight: '600', mb: 1 }}>Prerequisites</Typography>
         <List>
           <ListItem>
             <ListItemIcon><CodeIcon /></ListItemIcon>
@@ -101,25 +72,50 @@ export default function Contribute() {
             />
           </ListItem>
         </List>
+      </Section>
 
-        <Typography sx={{ fontWeight: '600', mt: 2, mb: 1 }}>Quick Start Steps</Typography>
+      <Section title="Quick Start Steps">
         <List>
-          <StepItem 
-            description="Clone your fork to your local machine"
-            command="git clone https://github.com/<your-account-name>/lnreader.git"
-          />
-          <StepItem 
-            description="Step into the local repository"
-            command="cd lnreader"
-          />
-          <StepItem 
-            description="Install dependencies"
-            command="npm install"
-          />
-          <StepItem 
-            description="Build the APK (find it in ~/lnreader/android/app/build/outputs/apk/release/)"
-            command="npm run buildRelease"
-          />
+          <ListItem>
+            <ListItemText 
+              primary="Clone your fork to your local machine:"
+              secondary={
+                <CodeBlock>
+                  git clone https://github.com/&lt;your-username&gt;/lnreader.git
+                </CodeBlock>
+              }
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemText 
+              primary="Step into the local repository:"
+              secondary={
+                <CodeBlock>
+                  cd lnreader
+                </CodeBlock>
+              }
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemText 
+              primary="Install dependencies:"
+              secondary={
+                <CodeBlock>
+                  npm install
+                </CodeBlock>
+              }
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemText 
+              primary="Build the APK:"
+              secondary={
+                <CodeBlock>
+                  npm run buildRelease
+                </CodeBlock>
+              }
+            />
+          </ListItem>
         </List>
       </Section>
 
@@ -127,14 +123,12 @@ export default function Contribute() {
         <Typography sx={{ mb: 2 }}>
           You will need an Android device or emulator connected to your computer as well as an IDE of your choice (e.g., VSCode).
         </Typography>
-
-        <Typography sx={{ fontWeight: '600', mb: 1 }}>Additional Prerequisites</Typography>
         <List>
           <ListItem>
             <ListItemIcon><AndroidIcon /></ListItemIcon>
             <ListItemText 
               primary="ADB (Android Debug Bridge)" 
-              secondary={<> <a href="https://developer.android.com/studio/command-line/adb" target="_blank" rel="noopener noreferrer">Android Developer site</a></>}
+              secondary={<><a href="https://developer.android.com/studio/command-line/adb" target="_blank" rel="noopener noreferrer">Android Developer site</a></>}
               secondaryTypographyProps={{ color: theme.onSurface }}
             />
           </ListItem>
@@ -143,26 +137,29 @@ export default function Contribute() {
             <ListItemText primary="IDE of your choice" />
           </ListItem>
         </List>
-
-        <Typography sx={{ fontWeight: '600', mt: 2, mb: 1 }}>Development Steps</Typography>
-        <List>
-          <StepItem 
-            description="Check if Android device/emulator is connected"
-            command="adb devices"
-          />
-          <StepItem 
-            description="Run Metro for development"
-            command="npm start"
-          />
-          <StepItem 
-            description="View on your Android device (run in a new terminal)"
-            command="npm run android"
-          />
-        </List>
-
-        <Typography sx={{ mt: 2 }}>
-          To view changes to the app with new code, save your code and press "r" on the Metro terminal to
-          reload it. The app on the Android device/emulator will reload shortly.
+        <Typography sx={{ mt: 2, mb: 1 }}>
+          Development Steps:
+        </Typography>
+        <Typography sx={{ mt: 2, mb: 1 }}>
+          Check if Android device/emulator is connected:
+        </Typography>
+        <CodeBlock>
+          adb devices
+        </CodeBlock>
+        <Typography sx={{ mt: 2, mb: 1 }}>
+          Run Metro for development:
+        </Typography>
+        <CodeBlock>
+          npm start
+        </CodeBlock>
+        <Typography sx={{ mt: 2, mb: 1 }}>
+          View on your Android device (run in a new terminal):
+        </Typography>
+        <CodeBlock>
+          npm run android
+        </CodeBlock>
+        <Typography sx={{ mt: 2, mb: 1 }}>
+          To view changes to the app with new code, save your code and press "r" on the Metro terminal to reload it. The app on the Android device/emulator will reload shortly.
         </Typography>
       </Section>
 
@@ -171,13 +168,14 @@ export default function Contribute() {
           This codebase's linting rules are enforced using <a href="http://eslint.org/" target="_blank" rel="noopener noreferrer">ESLint</a>.
         </Typography>
         <Typography sx={{ mb: 2 }}>
-          It is recommended that you install an ESLint plugin for your editor of choice when working on this
-          codebase. However, you can always check if the source code is compliant by running:
+          It is recommended that you install an ESLint plugin for your editor of choice when working on this codebase. However, you can always check if the source code is compliant by running:
         </Typography>
-        <CodeBlock>npm run lint</CodeBlock>
+        <CodeBlock>
+          npm run lint
+        </CodeBlock>
       </Section>
 
-      <Box sx={{ my: 2, textAlign: "center" }}>
+      <Box sx={{ my: 4, textAlign: "center" }}>
         <Button
           variant="contained"
           startIcon={<BrushIcon />}

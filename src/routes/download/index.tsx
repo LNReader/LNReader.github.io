@@ -5,7 +5,7 @@ import { Box, Button, Card, Divider, Typography, Link } from "@mui/material";
 import { Android } from "@mui/icons-material";
 
                {/* no direct link for now */}
-const downloadLink = "https://github.com/LNReader/lnreader/releases";
+const downloadLink = "https://github.com/LNReader/lnreader/releases/download/v2.0.0-beta.2/lnreader-v2.0.0-beta.2.apk";
 
 export default function Download() {
   const theme = useTheme();
