@@ -1,10 +1,12 @@
 import Layout from "@components/Layout";
 import Page from "@components/Page";
 import { useTheme } from "@hooks/useTheme";
-import { Box, Button, Card, Divider, Typography, Link } from "@mui/material";
+import { Box, Button, Card, Divider, Typography } from "@mui/material";
 import { Android } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
-const downloadLink = "https://github.com/LNReader/lnreader/releases/download/v2.0.0-beta.2/lnreader-v2.0.0-beta.2.apk";
+const downloadLink =
+  "https://github.com/LNReader/lnreader/releases/download/v2.0.0-beta.2/lnreader-v2.0.0-beta.2.apk";
 
 export default function Download() {
   const theme = useTheme();
@@ -16,7 +18,9 @@ export default function Download() {
         content={
           <Box>
             <Typography sx={{ mt: 2 }}>
-              <b>LNReader</b> is a Tachiyomi-like, free and open source light novel reader for Android. Download it now and start enjoying your favorite stories!
+              <b>LNReader</b> is a Tachiyomi-like, free and open source light
+              novel reader for Android. Download it now and start enjoying your
+              favorite stories!
             </Typography>
             <Box sx={{ my: 4, textAlign: "center" }}>
               <Button
@@ -50,14 +54,15 @@ export default function Download() {
                 Important Note
               </Typography>
               <Typography sx={{ fontSize: 16 }}>
-                <b>LNReader</b> comes without any pre-installed plugins. Visit our{" "}
-                <Link href="/plugins" color="inherit">
+                <b>LNReader</b> comes without any pre-installed plugins. Visit
+                our{" "}
+                <Link to="/plugins" color="inherit">
                   <b>Plugins page</b>
                 </Link>{" "}
                 to add content sources.
               </Typography>
             </Card>
-              {/* for later? thought I would find lines in Readme.*/}
+            {/* for later? thought I would find lines in Readme.*/}
             {/*
             <Box sx={{ mt: 4 }}>
               <Typography variant="h6" sx={{ mb: 2 }}>
