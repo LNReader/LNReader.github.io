@@ -126,6 +126,9 @@ export default function Upgrade() {
         if (plugin.id === "boxnovel") {
           novelUrl = "novel/" + novelUrl + "/";
         }
+        if (plugin.id === "royalroad") {
+          novelUrl = "fiction/" + novelUrl + "/";
+        }
         migratedNovels.push({
           id: oldNovel.novelId,
           path: novelUrl.replace("//", "/"),
