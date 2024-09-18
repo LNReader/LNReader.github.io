@@ -123,8 +123,11 @@ export default function Upgrade() {
         if (isUrlAbsolute(novelUrl)) {
           novelUrl = oldNovel.novelUrl.replace(plugin.site, "");
         }
-        if (plugin.id === "boxnovel") {
+        if (plugin.id === "boxnovel" || plugin.id === "1stkissnovel") {
           novelUrl = "novel/" + novelUrl + "/";
+        }
+        if (plugin.id === "royalroad") {
+          novelUrl = "fiction/" + novelUrl + "/";
         }
         migratedNovels.push({
           id: oldNovel.novelId,
