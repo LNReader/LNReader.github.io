@@ -44,7 +44,9 @@ const VisuallyHiddenInput = styled("input")({
 });
 
 const updateDomain = (url: string) =>
-  url.replace("https://www.wuxiap.com/", "https://www.wuxiabox.com/");
+  url
+    .replace("https://www.wuxiap.com/", "https://www.wuxiabox.com/")
+    .replace("https://allnovelfull.com/", "https://allnovelfull.net/");
 
 const isUrlAbsolute = (url: string) => {
   if (url) {
