@@ -72,29 +72,18 @@ export default function AppBar() {
         onClick={() => {
           dispatch(switchTheme());
         }}
-        sx={{ gap: 0.5 }}
+        sx={{ justifyContent: "center" }}
       >
         {theme.isDark ? <Brightness7Icon /> : <Brightness4Icon />}
-        <Typography>{theme.isDark ? "Dark" : "Light"}</Typography>
       </MenuItem>
-      <MenuItem>
-        <Link
-          to="https://github.com/LNReader/lnreader"
-          target="_blank"
-          style={{ gap: 4, display: "flex" }}
-        >
+      <MenuItem sx={{ justifyContent: "center" }}>
+        <Link to="https://github.com/LNReader/lnreader" target="_blank">
           <GitHubIcon />
-          <Typography>Github</Typography>
         </Link>
       </MenuItem>
-      <MenuItem>
-        <Link
-          to="https://discord.com/invite/QdcWN4MD63"
-          target="_blank"
-          style={{ gap: 4, display: "flex" }}
-        >
+      <MenuItem sx={{ justifyContent: "center" }}>
+        <Link to="https://discord.com/invite/QdcWN4MD63" target="_blank">
           <DiscordIcon />
-          <Typography>Discord</Typography>
         </Link>
       </MenuItem>
     </Menu>
