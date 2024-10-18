@@ -1,14 +1,7 @@
 import Layout from "@components/Layout";
 import Page from "@components/Page";
 import { useTheme } from "@hooks/useTheme";
-import {
-  Box,
-  Button,
-  Card,
-  CssBaseline,
-  Divider,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Card, Divider, Typography } from "@mui/material";
 import DownloadDoneIcon from "@mui/icons-material/DownloadDone";
 import { useEffect, useState } from "react";
 import { ThemeColors } from "@themes/types";
@@ -94,11 +87,10 @@ export default function Download() {
 
   return (
     <Layout>
-      <CssBaseline />
       <Page
         title="Download LNReader"
         content={
-          <Box sx={{}}>
+          <Box>
             <Typography sx={{ mt: 2 }}>
               <b>LNReader</b> is a Tachiyomi-like, free and open source light
               novel reader for Android. Download it now and start enjoying your
@@ -121,32 +113,38 @@ export default function Download() {
                 <DownloadButton release={preview} theme={theme} />
               ) : null}
             </Box>
-            <Card
-              sx={{
-                bgcolor: theme.primaryContainer,
-                my: 2,
-                p: 2,
-                borderRadius: 2,
-                color: theme.onPrimaryContainer,
-                maxWidth: { xs: 360, md: 1024 },
-                overflowX: "auto",
-              }}
-            >
-              <Markdown>{`## ${stable?.name}\n${stable?.body}`}</Markdown>
-            </Card>
-            <Card
-              sx={{
-                bgcolor: theme.tertiaryContainer,
-                my: 2,
-                p: 2,
-                borderRadius: 2,
-                color: theme.onTertiaryContainer,
-                maxWidth: { xs: 360, md: 1024 },
-                overflowX: "auto",
-              }}
-            >
-              <Markdown>{`## ${preview?.name}\n${preview?.body}`}</Markdown>
-            </Card>
+            {stable ? (
+              <Card
+                sx={{
+                  bgcolor: theme.primaryContainer,
+                  my: 2,
+                  p: 2,
+                  borderRadius: 2,
+                  color: theme.onPrimaryContainer,
+                  maxWidth: { xs: 360, md: 1024 },
+                  overflowX: "auto",
+                  wordBreak: "break-word",
+                }}
+              >
+                <Markdown>{`## ${stable?.name}\n${stable?.body}`}</Markdown>
+              </Card>
+            ) : null}
+            {preview ? (
+              <Card
+                sx={{
+                  bgcolor: theme.tertiaryContainer,
+                  my: 2,
+                  p: 2,
+                  borderRadius: 2,
+                  color: theme.onTertiaryContainer,
+                  maxWidth: { xs: 360, md: 1024 },
+                  overflowX: "auto",
+                  wordBreak: "break-word",
+                }}
+              >
+                <Markdown>{`## ${preview?.name}\n${preview?.body}`}</Markdown>
+              </Card>
+            ) : null}
             <Divider sx={{ my: 4 }} />
           </Box>
         }
