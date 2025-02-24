@@ -85,7 +85,9 @@ export default function Upgrade() {
     )
       .then((res) => res.json())
       .then((plugins) => {
-        setPlugins(plugins);
+        setPlugins(
+          plugins.filter((plugin: PluginItem) => plugin.id !== "komga")
+        );
         setLoading(false);
       });
   }, []);
